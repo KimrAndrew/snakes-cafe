@@ -14,6 +14,8 @@ DRINKS = ['Coffee', 'Tea', 'Unicorn Tears']
 MENU = APPETIZERS + ENTREES + DESSERTS + DRINKS
 # Input Icon
 PROMPT = '> '
+# Exit String
+EXIT = 'quit'
 
 def createBr(char):
     br = char * WIDTH
@@ -57,13 +59,16 @@ def printOrderPrompt():
     print(lineTemplate('What would you like to order?'))
     print(lineTemplate(''))
 
+# checks if item is on the menu than updates the order
 def handleOrder(order,item):
     if not item in MENU:
         print(lineTemplate(f'Sorry, we don\'t carry {item}'))
         return
     if not order.get(item) == None:
+        # adds another item to the existing order
         order.update({item: order[item] + 1})
     else:
+        # starts keeping track of an item if not already in the order
         order.update({item: 1})
     printOrder(order,item)
     return {item: order[item]}
@@ -81,28 +86,35 @@ def getOrders():
     order = {}
     while True:
         item = input(PROMPT)
-        if item == 'quit':
+        if item == EXIT:
             break
         handleOrder(order,item)
     return order
 
-# def getSummary(order):
-    
-
-# def printSummary(order):
-#     print(lineTemplate(''))
-#     print(lineTemplate('Summary'))
-
-#     for item in order:
+def getSummary(order):
+    for item in order.keys():
+        printOrder(order,item)
 
 
-#     print(lineTemplate(''))
+def printSummary(order):
+    print(lineTemplate(''))
+    print(lineTemplate('Summary'))
+    print(lineTemplate(''))
+    print('\n')
+    getSummary(order)
+    print('\n')
 
-printMenuHeader()
-printMenuSection('Appetizers', APPETIZERS)
-printMenuSection('Entrees', ENTREES)
-printMenuSection('Desserts', DESSERTS)
-printMenuSection('Drinks', DRINKS)
-printOrderPrompt()
-print(getOrders())
+def printMenuSections():
+    printMenuSection('Appetizers', APPETIZERS)
+    printMenuSection('Entrees', ENTREES)
+    printMenuSection('Desserts', DESSERTS)
+    printMenuSection('Drinks', DRINKS)
 
+def main():
+    printMenuHeader()
+    printMenuSections()
+    printOrderPrompt()
+    order = getOrders()
+    printSummary(order)
+
+main()
