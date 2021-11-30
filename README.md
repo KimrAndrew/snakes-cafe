@@ -10,4 +10,4 @@
 - [Converting Dictionaries To JSON](https://www.geeksforgeeks.org/how-to-convert-python-dictionary-to-json/)
 
 ## PR's
-- [https://github.com/KimrAndrew/snakes-cafe/pull/1](https://github.com/KimrAndrew/snakes-cafe/pull/1)
+- [Lab 01](https://github.com/KimrAndrew/snakes-cafe/pull/1)
