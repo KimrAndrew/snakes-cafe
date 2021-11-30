@@ -7,3 +7,4 @@
 - [Skimmed But Less Helpful](https://www.geeksforgeeks.org/python-output-formatting/)
 - [More On f-strings](https://realpython.com/python-f-strings/)
 - [Python Dictionary Methods From W3](https://www.w3schools.com/python/python_ref_dictionary.asp)
+- [Converting Dictionaries To JSON](https://www.geeksforgeeks.org/how-to-convert-python-dictionary-to-json/)
